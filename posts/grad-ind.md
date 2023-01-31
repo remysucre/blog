@@ -24,9 +24,9 @@ Formally:
 \text{canonicalize}(e_1) \equiv \text{canonicalize}(e_2) \Leftrightarrow \forall x . \text{eval}(e_1, x) = \text{eval}(e_2, x)
 ```
 
-Here $`\equiv`$ denotes syntactic equality, 
+Here $\equiv$ denotes syntactic equality, 
 and = denotes semantic (value) equality.
-In our case, the expressions are in the language of arithmetics $`(+, \times, x, \mathbb{R})`$:
+In our case, the expressions are in the language of arithmetics $(+, \times, x, \mathbb{R})$:
 
 **Definition** an *arithmetic expression* is either a variable,
 a constant, the sum of two expressions, or the product of two expressions.
@@ -61,7 +61,7 @@ I now prove the contrapositive of the backward direction:
 C_{sop}(e_1) \not\equiv C_{sop}(e_2) \Rightarrow \exists x . \text{eval}(e_1, x) \neq \text{eval}(e_2, x)
 ```
 
-There are two cases for $`C_{sop}(e_1) \not\equiv C_{sop}(e_2)`$:
+There are two cases for $C_{sop}(e_1) \not\equiv C_{sop}(e_2)$:
 1. e1 and e2 differ in their constant term 
 (e.g. e1 = 2xy + 4 and e2 = 3yz + 7), and
 2. otherwise (e.g. e1 = 2xy + 4 and e2 = 3yz + 4).
@@ -85,16 +85,16 @@ and
 \exists y . \frac{\partial e_1}{\partial y} \neq \frac{\partial e_2}{\partial y} \Rightarrow \exists x . \text{eval}(e_1, x) \neq \text{eval}(e_2, x)
 ```
 
-Recall that $`\neq`$ is semantic inequivalence.
+Recall that $\neq$ is semantic inequivalence.
 
 The latter is simple:
-pick x1 and x2 that only differ in the y variable (from $`\partial y`$ above).
+pick x1 and x2 that only differ in the y variable (from $\partial y$ above).
 Since the derivatives differ,
 we can always find a pair of x1 and x2 such that 
-either $`\text{eval}(e_1, x_1) \neq \text{eval}(e_2, x_1)`$ 
-or $`\text{eval}(e_1, x_2) \neq \text{eval}(e_2, x_2)`$.
+either $\text{eval}(e_1, x_1) \neq \text{eval}(e_2, x_1)$ 
+or $\text{eval}(e_1, x_2) \neq \text{eval}(e_2, x_2)$.
 
-To prove $`C_{sop}(e_1) \not\equiv C_{sop}(e_2) \Rightarrow \exists y . \partial e_1 / \partial y \neq \partial e_2 / \partial y`$,
+To prove $C_{sop}(e_1) \not\equiv C_{sop}(e_2) \Rightarrow \exists y . \partial e_1 / \partial y \neq \partial e_2 / \partial y$,
 we perform induction over the derivatives of the expressions,
 with our original proof goal as the inductive hypothesis:
 
@@ -102,15 +102,15 @@ with our original proof goal as the inductive hypothesis:
 C_{sop}(e_1) \equiv C_{sop}(e_2) \Leftrightarrow \forall x . \text{eval}(e_1, x) = \text_{eval}(e_2, x)
 ```
 
-Since $`C_{sop}(e_1) \not\equiv C_{sop}(e_2)`$,
-we know $`\exists y . \partial e_1 / \partial y \not\equiv \partial e_2 / \partial y`$ (syntactically).
+Since $C_{sop}(e_1) \not\equiv C_{sop}(e_2)$,
+we know $\exists y . \partial e_1 / \partial y \not\equiv \partial e_2 / \partial y$ (syntactically).
 Since the derivative of a canonical form is also canonical 
 (not that obvious, but you'll see it after thinking a little harder),
 by our inductive hypothesis,
-$`\exists y . \partial e_1 / \partial y \neq \partial e_2 / \partial y`$ (semantically).
+$\exists y . \partial e_1 / \partial y \neq \partial e_2 / \partial y$ (semantically).
 
 The preceding induction is sound because taking the derivative makes any expression simpler,
-eventually bringing it to a constant. $`\blacksquare`$
+eventually bringing it to a constant. $\blacksquare$
 
 The main takeaway here is that,
 when we want to perform an inductive proof,

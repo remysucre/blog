@@ -12,10 +12,10 @@ That is, given the query
 ```math
 Q(x,y,z) \leftarrow R(x,y), S(y,z), T(x,z).
 ```
-we have the bound $`|Q| \leq |R| \times |S| \times |T|`$. 
+we have the bound $|Q| \leq |R| \times |S| \times |T|$. 
 
-If $`|R|=|S|=|T|=N`$, then $`|Q| \leq N^3`$. 
-We can do better - at least we know $`|Q| \leq |R| \times |S| = N^2`$.
+If $|R|=|S|=|T|=N$, then $|Q| \leq N^3$. 
+We can do better - at least we know $|Q| \leq |R| \times |S| = N^2$.
 That is because Q contains fewer tuples than the query 
 ```math
 Q’(x,y,z) \leftarrow R(x,y), S(y,z).
@@ -23,7 +23,7 @@ Q’(x,y,z) \leftarrow R(x,y), S(y,z).
 since Q further joins with T.
 
 The best possible theoretical bound is the AGM bound, 
-which is $`N^{3/2}`$ for Q. 
+which is $N^{3/2}$ for Q. 
 It’s computed from the fractional edge cover of the query hypergraph.
 
 ## Query Hypergraph
@@ -49,9 +49,9 @@ Every edge cover is a fractional cover,
 because we just assign 1 to every edge in the cover 
 and 0 to edges not in the cover.
 For Q’s hypergraph, 
-$`R \rightarrow 1/2, S \rightarrow 1/2, T \rightarrow 1/2`$ is also a fractional cover.
-The AGM bound is defined to be $`\min_{w_1,w_2,w_3} |R|^{w_1}|S|^{w_2}|T|^{w_3}`$ 
-where $`R \rightarrow w_1, S \rightarrow w_2, T \rightarrow w_3`$ is a fractional cover.
+$R \rightarrow 1/2, S \rightarrow 1/2, T \rightarrow 1/2$ is also a fractional cover.
+The AGM bound is defined to be $\min_{w_1,w_2,w_3} |R|^{w_1}|S|^{w_2}|T|^{w_3}$ 
+where $R \rightarrow w_1, S \rightarrow w_2, T \rightarrow w_3$ is a fractional cover.
 This is the upper bound of Q’s output size;
 i.e. in the worst case Q outputs this many tuples.
 
@@ -60,16 +60,16 @@ i.e. in the worst case Q outputs this many tuples.
 We would like an algorithm that runs in time linear to the worst case output size,
 and Generic Join is such an algorithm (with a log factor).
 It has one parameter: a global variable ordering.
-It is an ordering of the set of Q’s variables, say $`[x,y,z]`$.
+It is an ordering of the set of Q’s variables, say $[x,y,z]$.
 Any ordering works (achieves the worst-case complexity) in theory,
 but different ordering performs very differently in practice.
 Given an ordering,
 we assume the input relations are stored in tries sorted by the ordering.
-That is, given the ordering $`[x,y,z]`$,
-$`R(x,y)`$ is sorted by x and then y,
+That is, given the ordering $[x,y,z]$,
+$R(x,y)$ is sorted by x and then y,
 and the first-level trie nodes are the x’s.
 
-Even more concretely, if $`R=\{(3, 4), (2, 1), (2, 5)\}`$, 
+Even more concretely, if $R=\{(3, 4), (2, 1), (2, 5)\}$, 
 then its trie looks like this (each box is sorted): 
 
 ![example trie](../assets/wcoj/trie.png)
@@ -94,12 +94,12 @@ for a in A do
          output (a,b,c)
 ```
 
-Note that selection, e.g. $`R(a, y)`$ is free / very fast because we have the tries.
-$`A \cap B`$ can also be done in $`\tilde{O}(\min(|A|, |B|))`$ time 
-($`\tilde{O}`$ means O with a log factor).
+Note that selection, e.g. $R(a, y)$ is free / very fast because we have the tries.
+$A \cap B$ can also be done in $\tilde{O}(\min(|A|, |B|))$ time 
+($\tilde{O}$ means O with a log factor).
 For general queries we may have to intersect more than 2 relations,
 in which case the intersection must be performed in 
-$`\tilde{O}(\min_i|A_i|)`$ time (using the merge in merge-sort). 
+$\tilde{O}(\min_i|A_i|)$ time (using the merge in merge-sort). 
 
 ## When to Use Generic Join
 

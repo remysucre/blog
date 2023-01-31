@@ -9,7 +9,7 @@ Formally, it solves formula of the form
 \exists f . \forall x, y, \dots . \phi
 ```
 
-where $\phi$ is the specification and $`f(x,y,\dots)`$ is a program
+where $\phi$ is the specification and $f(x,y,\dots)$ is a program
 drawn from the given grammar. 
 
 For example, we can ask for a function satisfying the following spec:
@@ -17,7 +17,7 @@ For example, we can ask for a function satisfying the following spec:
 ```math
 \exists f . \forall x, y . f(x,y) \geq x \wedge f(x,y) \geq y \wedge (x = f(x,y) \vee y = f(x,y))
 ```
-In English, $`f(x,y)`$ must be no less than both x and y,
+In English, $f(x,y)$ must be no less than both x and y,
 and it should be equal to either x or y 
 (hint: it's the function `max`).
 
@@ -71,14 +71,14 @@ and use the following simple grammar:
 e := x + y | max(x,y)
 ```
 
-Suppose the generator proposes $`\max(x,y)`$ as a candidate;
-the checker then instantiates the spec with $`f=\max`$:
+Suppose the generator proposes $\max(x,y)$ as a candidate;
+the checker then instantiates the spec with $f=\max$:
 
 ```math
 \forall x, y . \max(x,y) \geq x \wedge \max(x,y) \geq y \wedge (x = \max(x,y) \vee y = \max(x,y))
 ```
 
-To check the validity of this formula, the checker simply drops the $`\forall`$
+To check the validity of this formula, the checker simply drops the $\forall$
 and asks the solver if the *negation* of the body is satisfiable:
 
 ```math
@@ -132,7 +132,7 @@ the spec is satisfied:
 \forall x, y . f(x,y) \geq x \wedge f(x,y) \geq y \wedge (x = f(x,y) \vee y = f(x,y))
 ```
 
-There is one last wrinkle: we need to remove the $`\forall`$ quantification, 
+There is one last wrinkle: we need to remove the $\forall$ quantification, 
 since quantified formula are usually undecidable. 
 So instead of solving for all x and y, we instantiate the formula with the
 counterexamples:

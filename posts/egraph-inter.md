@@ -14,24 +14,24 @@ is the intersection of the sets of terms represented by G1, G2, and
 2. two terms are equal (according to the equivalence relation) in G 
 if and only if they are equal in both G1 and G2. 
 
-To be even more formal, define $`G = (T, E)`$ 
+To be even more formal, define $G = (T, E)$ 
 where T is the set of terms and E the equivalence relation,
-and similarly $`G_1 = (T_1, E_1), G_2 = (T_2, E_2)`$.
-Then $`T = T_1 \cap T_2`$ and 
-$`(t_1, t_2) \in E \Leftrightarrow (t_1, t_2) \in E_1 \wedge (t_1, t_2) \in E_2`$. 
+and similarly $G_1 = (T_1, E_1), G_2 = (T_2, E_2)$.
+Then $T = T_1 \cap T_2$ and 
+$(t_1, t_2) \in E \Leftrightarrow (t_1, t_2) \in E_1 \wedge (t_1, t_2) \in E_2$. 
 
 **Algorithm** [intersecting e-graphs]
 Given two e-graphs G1, G2, compute their intersection G. 
 
 Observe that G’s equivalence relation E must be a refinement of E1 and E2, 
-because if $`(t_1, t_2) \in E`$ we must have $`(t_1, t_2) \in E_1`$ 
-and $`(t_1, t_2) \in E_2`$, 
-but if $`(t_a, t_b) \in E_1`$ we might not have $`(t_a, t_b) \in E`$, 
+because if $(t_1, t_2) \in E$ we must have $(t_1, t_2) \in E_1$ 
+and $(t_1, t_2) \in E_2$, 
+but if $(t_a, t_b) \in E_1$ we might not have $(t_a, t_b) \in E$, 
 and similar for E2.
 Given this observation, we can define the following maps: 
 
-- $`E \rightarrow E_2`$ will map each class in E to a corresponding class in E2, 
-- $`E_1 \rightarrow \{E\}`$ will map each class in E1 to a (possibly empty) set of classes in E. 
+- $E \rightarrow E_2$ will map each class in E to a corresponding class in E2, 
+- $E_1 \rightarrow \{E\}$ will map each class in E1 to a (possibly empty) set of classes in E. 
 
 A class in E1 may map to the empty set 
 if the terms it contains are not represented in G.
@@ -63,10 +63,10 @@ Nodes will get added bottom-up starting with the leaves
 and a node only gets added if it’s in G2 as well.
 But one node in G1 may become multiple nodes in G,
 because any of its child class may have been split into multiple classes in G.
-So we follow the map $`E_1 \rightarrow \{E\}`$ and create the new nodes accordingly.
+So we follow the map $E_1 \rightarrow \{E\}$ and create the new nodes accordingly.
 After adding a new node to G, we update the maps.
 Because all nodes we added from the same class in G1 
-($`E_1 \rightarrow \{E\}[\text{class}]`$)
+($E_1 \rightarrow \{E\}[\text{class}]$)
 are equivalent according to G1,
 we only need to check if they are also equivalent under G2.
 If any pair are equivalent, we union them in G.
@@ -103,9 +103,9 @@ But this will result in an infinite number of enodes, which is impossible.
 - *Equality completeness*: if two terms are equal in both G1, G2, they are equal in G. 
 
 The following needs work - 
-these reply on some invariants about the maps $`E \rightarrow E_2`$ and  $`E_1 \rightarrow \{E\}`$: 
-- If $`c_2 = E \rightarrow E_2[c]`$, then the terms represented by c are all in c2. 
-- If $`c \in E_1 \rightarrow \{E\}[c_1]`$, then the terms represented by c1 are all in c.
+these reply on some invariants about the maps $E \rightarrow E_2$ and  $E_1 \rightarrow \{E\}$: 
+- If $c_2 = E \rightarrow E_2[c]$, then the terms represented by c are all in c2. 
+- If $c \in E_1 \rightarrow \{E\}[c_1]$, then the terms represented by c1 are all in c.
 
 *Representation soundness*: every enode added to G is constructed from an enode in G1,
 and we only add it if it’s also found in G2. 
