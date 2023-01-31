@@ -23,15 +23,15 @@ If we look at *all* iterations, we'll be computing
 $E \bowtie dP_0 \cup E \bowtie dP_1 \cup \cdots \cup E \bowtie dP_{k-1}$.
 Factoring out `E`, we get $E \bowtie (dP_0 \cup \cdots \cup dP_{k-1}) = E \bowtie P_k$, 
  where $P_k$ is the relation $P$ at iteration $k$. 
-Since $P_k$ must be contained in the final output $P$, i.e. $|P_k| \leq |P|$,
- at this point we can say the whole semi-naive algorithm runs in $O(|E|\times|P|)$.
+Since $P_k$ must be contained in the final output $O$, i.e. $|P_k| \leq |O|$,
+ at this point we can say the whole semi-naive algorithm runs in $O(|E|\times|O|)$.
 But turns out we can do better. 
 
-To reduce clutter, I'll write $O$ for the final output, and just $P$ for $P_k$. 
+To reduce clutter, I'll write $P$ for $P_k$. 
 Now take a closer look at the join `Q(x, y, z) :- E(x, z), P(z, y)`.
 For the moment, let's also add $O$ into the join to make a triangle `Q'(x, y, z) :- E(x, z), P(z, y), O(x, y)`.
 With this, we can use the AGM bound to get $O(|E|^\frac{1}{2} |P|^\frac{1}{2} |O|^\frac{1}{2}) \leq O(|E|^\frac{1}{2} |O|)$, 
- which is a tighter bound than the above (remember we now use $O$ for the output).
+ which is a tighter bound than the above.
 I now claim we can also use this bound for $Q$. 
 The key is that the execution of Generic Join for $Q'$ is exactly the same as that for $Q$. 
 
