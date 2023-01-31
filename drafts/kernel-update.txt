@@ -1,0 +1,3 @@
+mount /dev/nvme0n1p2 /boot
+grub-mkconfig -o /boot/grub/grub.cfg
+cd /boot rm ...
