@@ -9,7 +9,7 @@ Formally, it solves formula of the form
 \exists f . \forall x, y, \dots . \phi
 ```
 
-where $`\phi`$ is the specification and $`f(x,y,\dots)`$ is a program
+where $\phi$ is the specification and $`f(x,y,\dots)`$ is a program
 drawn from the given grammar. 
 
 For example, we can ask for a function satisfying the following spec:
