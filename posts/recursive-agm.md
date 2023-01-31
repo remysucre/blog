@@ -43,7 +43,7 @@ for z in E.z ^ P.z
 ```
 
 Since $O$ is the final output of the transitive closure program, 
- we have the invariant $\forall x, y, z : (x, z) \in E \wedge (z, y) \in P \implies (x, z) \in O$.
+ we have the invariant $\forall x, y, z : (x, z) \in E \wedge (z, y) \in P \implies (x, y) \in O$.
 Therefore, we can remove the intersections with $O$ on both inner loops, 
  and the run time would remain the same since $O$ does not filter out any value.
 With $O$ removed, the nested loop now computes exactly $Q$, 
