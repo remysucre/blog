@@ -13,11 +13,9 @@ P(x, y) :- E(x, y).
 P(x, y) :- E(x, z), P(z, y). 
 ```
 
-During semi-naive evaluation, we will compute a delta relation $dP$ every iteration as follows:
-
-```
-dP(x, y) :- E(x, z), dP(z, y).
-```
+During semi-naive evaluation, we will compute a delta relation $dP$ every iteration as 
+$dP_{i+1} = E \bowtie dP_i - P_i$.
+The set difference can be done in linear time, so we will focus on the join only.
 
 If we look at *all* iterations, we'll be computing 
 $E \bowtie dP_0 \cup E \bowtie dP_1 \cup \cdots \cup E \bowtie dP_{k-1}$.
