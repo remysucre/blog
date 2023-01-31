@@ -25,8 +25,8 @@ A very simple and useful property of the AGM bound is *decomposability* (Lemma 4
  demonstrated with the triangle query here:
 
 ```math
-\sum_{(a, b) \in R} \text{AGM}\left( \texttt{Q(a, b, z) = S(a, z), T(z, b)} \right) 
-\leq \text{AGM}\left( \texttt{Q(x, y, z) = R(x, y), S(x, z), T(z, y)} \right)
+\sum_{(a, b) \in R} \text{AGM}\left( \texttt{Q(z) = S(a,z), T(z,b)} \right) 
+\leq \text{AGM}\left( \texttt{Q(x,y,z) = R(x,y), S(x,z), T(z,y)} \right)
 ```
 What this means is that instead of the standard Generic Join where we build a trie
  for each relation and do intersections, 
