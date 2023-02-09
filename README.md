@@ -2,6 +2,7 @@ Posts by [Remy Wang](https://remy.wang/).
 
 | Topic | Date | Title |
 |:------|:-----|:------|
+| Datalog | 2023-02-08 | [Datalog Resources](posts/datalog-resources.md)
 | Join Algorithms | 2023-01-31 | [Late materialization is (almost) worst-case optimal](posts/late-materialization.md)
 | Join Algorithms | 2023-01-30 | [AGM Bound for Transitive Closure](posts/recursive-agm.md)
 | Program Synthesis | 2021-04-27 | [Counterexample-guided Inductive Synthesis](posts/cegis.md)
