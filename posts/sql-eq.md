@@ -1,6 +1,6 @@
 # How to Check 2 SQL Tables are the Same
 
-Today [Stanley](https://www.linkedin.com/in/stanley-yang-9457b7252) 
+Today [Stanley](https://github.com/az15240)
  asked me a simple question: 
  how can we check if the contents of two SQL tables are the same?
 Well, you just do `SELECT * FROM t1 = t2`... wait, that's wrong, comparison
@@ -159,8 +159,8 @@ See the complete query at the end of this post.
 All together, the query uses only standard SQL features, 
  and to use it for a new pair of tables we only need to change
  the table names.
-Of course, it is completely impractical except for any table
- of decent size, but that's not the point :)
+Of course, it is completely impractical for any table
+ of decent size (it runs in time $O(N^N)$), but that's not the point :)
 
 But even the simpler query using `GROUP BY` was not trivial to come up with, 
  which brings the question: why isn't it a standard feature of SQL to just
@@ -189,7 +189,7 @@ CREATE TABLE t1_moments AS
 
 WITH RECURSIVE r1 AS (
   -- First iteration, return t1 as-is
-  SELECT 1 as i, t1.*
+  SELECT 1 AS i, t1.*
     FROM t1
 
   UNION ALL
@@ -209,7 +209,7 @@ SELECT COUNT(*) FROM r1 GROUP BY i;
 CREATE TABLE t2_moments AS
 
 WITH RECURSIVE r2 AS (
-  SELECT 1 as i, t2.*
+  SELECT 1 AS i, t2.*
     FROM t2
 
   UNION ALL
