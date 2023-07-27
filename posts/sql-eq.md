@@ -84,7 +84,7 @@ Using the same example, `t NATURAL JOIN t` contains 1 copy of `a`, 4 copies of `
 
 With this, we can connect repeated self-joins of a table with 
  the [moments](https://en.wikipedia.org/wiki/Moment_(mathematics))
- of the vector (or [power sum](https://en.wikipedia.org/wiki/Power_sum_symmetric_polynomial), or [p-norm](https://en.wikipedia.org/wiki/Norm_(mathematics)#p-norm), if you're more familiar with those).
+ of the vector (or [power sum](https://en.wikipedia.org/wiki/Newton%27s_identities), or [p-norm](https://en.wikipedia.org/wiki/Norm_(mathematics)#p-norm), if you're more familiar with those).
 That is, the query: 
 ```SQL
 SELECT COUNT(*) 
