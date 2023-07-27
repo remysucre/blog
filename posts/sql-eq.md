@@ -93,7 +93,7 @@ SELECT COUNT(*)
          ... -- total of p copies of t's
          NATURAL JOIN t
 ```
-computes $\sum_i^n v_i^p$, where $v$ is the vector representation of `t`
+computes $\sum_{i}^{n} v_i^p$, where $v$ is the vector representation of `t`
  and $n$ is its length, i.e. the number of distinct elements in `t`.
 Abusing notation, we'll write that as $||v||_p$
 
