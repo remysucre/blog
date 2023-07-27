@@ -2,6 +2,7 @@ Posts by [Remy Wang](https://remy.wang/).
 
 | Topic | Date | Title |
 |:------|:-----|:------|
+| SQL | 2023-07-26 | [How to Check 2 SQL Tables are the Same](posts/sql-eq.md)
 | Tools | 2023-05-31 | [Filter every mail: a cure for email addiction](posts/email-cure.md)
 | Datalog | 2023-02-08 | [Datalog resources](posts/datalog-resources.md)
 | Join Algorithms | 2023-01-31 | [Late materialization is (almost) worst-case optimal](posts/late-materialization.md)
