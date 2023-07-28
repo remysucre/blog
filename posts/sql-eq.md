@@ -160,7 +160,7 @@ All together, the query uses only standard SQL features,
  and to use it for a new pair of tables we only need to change
  the table names.
 Of course, it is completely impractical for any table
- of decent size (it runs in time $O(N^N)$), but that's not the point :)
+ of decent size (it runs in time $O(N^N)$ ), but that's not the point :)
 
 But even the simpler query using `GROUP BY` was not trivial to come up with, 
  which brings the question: why isn't it a standard feature of SQL to just
