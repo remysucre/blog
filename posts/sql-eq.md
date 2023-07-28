@@ -70,14 +70,14 @@ TBH it's not surprising I got nerd sniped by this problem:
  [dealt](https://arxiv.org/abs/2202.10390) 
  [with](https://remy.wang/reports/dfta.pdf) 
  [equivalence](https://dl.acm.org/doi/abs/10.1145/3591239), 
- and one idea in fact lead to the final solution.
+ and one idea in fact led to the final solution.
 **This key idea is to view a table in bag semantics 
  as a vector of numbers,
  and view joins of tables as polynomials**.
 Specifically, consider sorting all the distinct elements,
  and the `i`th entry of the vector stores the 
  count of the `i`th distinct element.
-For example, the table `t=[a, b, b, c, c]` beomes the vector `[1 2 2]`.
+For example, the table `t=[a, b, b, c, c]` becomes the vector `[1 2 2]`.
 Then, a self-join becomes point-wise multiplication of the vector with itself.
 Using the same example, `t NATURAL JOIN t` contains 1 copy of `a`, 4 copies of `b`, 
  and 4 copies of `c`, `[1 4 4] = [1 2 2] * [1 2 2]`.
