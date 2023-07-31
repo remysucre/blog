@@ -1,1 +1,1 @@
-Moved to [remy.wang/blog](remy.wang/blog).
+Moved to [remy.wang/blog](https://remy.wang/blog/).
